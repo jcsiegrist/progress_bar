@@ -167,7 +167,7 @@ class ProgressBarTask extends Shell {
 				$perc * 100,
 				$this->done, $this->total,
 				$this->_niceRemaining(),
-				__('remaining', true),
+				__('remaining'),
 				str_repeat("-", $doneSize),
 				str_repeat(" ", $this->size - $doneSize)
 			);
@@ -185,7 +185,7 @@ class ProgressBarTask extends Shell {
 				$perc * 100,
 				$this->done, $this->total,
 				$this->_niceRemaining(),
-				__('remaining', true),
+				__('remaining'),
 				$this->done, $this->total
 			);
 		}
@@ -227,11 +227,11 @@ class ProgressBarTask extends Shell {
 		$remaining = -1 * round($rate * ($this->total - $this->done));
 
 		if ($remaining < 60) {
-			return sprintf('%02d %s', $remaining, __n('sec', 'secs', $remaining, true));
+			return sprintf('%02d %s', $remaining, __n('sec', 'secs', $remaining));
 		} else {
 			return sprintf('%d %s, %02d %s',
-				floor($remaining / 60), __n('min', 'mins', floor($remaining / 60), true),
-				$remaining % 60, __n('sec', 'secs', $remaining % 60, true));
+				floor($remaining / 60), __n('min', 'mins', floor($remaining / 60)),
+				$remaining % 60, __n('sec', 'secs', $remaining % 60));
 		}
 	}
 
